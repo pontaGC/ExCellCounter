@@ -1,0 +1,14 @@
+﻿################################################################################
+# この .gitignore ファイルは Microsoft(R) Visual Studio によって自動的に作成されました。
+################################################################################
+
+/.vs
+/ExCellCounter/.vs
+/ExCellCounter/bin/Debug
+/ExCellCounter/obj
+/ExCellCounter.Presentation/bin/Debug
+/ExCellCounter.Presentation/obj
+/ExCellCounter.Presentation.Core/bin/Debug
+/ExCellCounter.Presentation.Core/obj
+/ExCellCounter.Shared/bin/Debug
+/ExCellCounter.Shared/obj
