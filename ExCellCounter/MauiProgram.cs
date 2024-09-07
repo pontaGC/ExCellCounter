@@ -1,4 +1,5 @@
-﻿using ExCellCounter.Shared.DependencyInjection;
+﻿using CommunityToolkit.Maui;
+using ExCellCounter.Shared.DependencyInjection;
 using Microsoft.Extensions.Logging;
 
 namespace ExCellCounter
@@ -10,6 +11,7 @@ namespace ExCellCounter
             var builder = MauiApp.CreateBuilder();
             builder
                 .UseMauiApp<App>()
+                .UseMauiCommunityToolkit()
                 .ConfigureFonts(fonts =>
                 {
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
