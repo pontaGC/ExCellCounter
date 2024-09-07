@@ -1,6 +1,4 @@
-﻿using ExCellCounter.Presentation;
-
-namespace ExCellCounter
+﻿namespace ExCellCounter
 {
     public partial class App
     {
