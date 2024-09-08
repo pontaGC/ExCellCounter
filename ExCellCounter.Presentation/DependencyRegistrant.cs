@@ -2,22 +2,21 @@
 using ExCellCounter.Presentation.Factories;
 using ExCellCounter.Shared.DependencyInjection;
 
-namespace ExCellCounter.Presentation
+namespace ExCellCounter.Presentation;
+
+/// <inheritdoc />
+public sealed class DependencyRegistrant : IDependenyRegistrant
 {
     /// <inheritdoc />
-    public sealed class DependencyRegistrant : IDependenyRegistrant
+    public void Register(IServiceCollection container)
     {
-        /// <inheritdoc />
-        public void Register(IServiceCollection container)
-        {
-            ArgumentNullException.ThrowIfNull(container);
+        ArgumentNullException.ThrowIfNull(container);
 
-            RegisterFactories(container);
-        }
+        RegisterFactories(container);
+    }
 
-        private static void RegisterFactories(IServiceCollection container)
-        {
-            container.AddSingleton<IMainPageFactory, MainPageFactory>();
-        }
+    private static void RegisterFactories(IServiceCollection container)
+    {
+        container.AddSingleton<IMainPageFactory, MainPageFactory>();
     }
 }
