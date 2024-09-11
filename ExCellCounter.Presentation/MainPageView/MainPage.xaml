@@ -3,14 +3,24 @@
              x:ClassModifier="internal"
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:counterSetting="clr-namespace:ExCellCounter.Presentation.CellCounterSetting">
-
+             xmlns:local="clr-namespace:ExCellCounter.Presentation.MainPageView"
+             xmlns:counterSetting="clr-namespace:ExCellCounter.Presentation.CellCounterSetting"
+             x:DataType="local:MainPageViewModel">
+    <ContentPage.Resources>
+        <ControlTemplate x:Key="CellCounterSettingControlTemplate"
+                         x:DataType="{x:Type counterSetting:CellCounterSettingViewModel}">
+            <counterSetting:CellCounterSettingView />
+        </ControlTemplate>
+    </ContentPage.Resources>
     <ScrollView>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
-            <counterSetting:CellCounterSettingView Grid.Row="0" />
+            <ContentView Grid.Row="0"
+                         BindingContext="{Binding CellCounterSetting, Mode=OneWay}"
+                         ControlTemplate="{StaticResource CellCounterSettingControlTemplate}">
+            </ContentView>
         </Grid>
     </ScrollView>
 </ContentPage>

@@ -23,6 +23,7 @@ public sealed class MainPageFactory : IMainPageFactory
         return new MainPage()
         {
             Title = "Home",
+            BindingContext = new MainPageViewModel(),
         };
     }
 }

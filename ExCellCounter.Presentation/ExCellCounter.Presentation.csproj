@@ -37,6 +37,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="CellCounterSetting\CellCounterSettingStyle.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="CellCounterSetting\CellCounterSettingView.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
