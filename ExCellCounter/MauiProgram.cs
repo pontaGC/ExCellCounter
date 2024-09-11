@@ -22,6 +22,7 @@ namespace ExCellCounter
     		builder.Logging.AddDebug();
 #endif
 
+            RegisterDependencies(builder.Services, new Services.DependencyRegistrant());
             RegisterDependencies(builder.Services, new Presentation.DependencyRegistrant());
 
             return builder.Build();

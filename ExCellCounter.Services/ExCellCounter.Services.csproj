@@ -11,4 +11,9 @@
     <ProjectReference Include="..\ExCellCounter.Shared\ExCellCounter.Shared.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="ClosedXML" Version="0.102.3" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="8.0.1" />
+  </ItemGroup>
+
 </Project>
