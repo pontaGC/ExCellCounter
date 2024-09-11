@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExCellCounter.Services.Core\ExCellCounter.Services.Core.csproj" />
+    <ProjectReference Include="..\ExCellCounter.Shared\ExCellCounter.Shared.csproj" />
+  </ItemGroup>
+
+</Project>

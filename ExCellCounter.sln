@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionIt
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExCellCounter.Services.Core", "ExCellCounter.Services.Core\ExCellCounter.Services.Core.csproj", "{1AE7F997-2C31-476B-8071-12405583E327}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExCellCounter.Services", "ExCellCounter.Services\ExCellCounter.Services.csproj", "{BABF65BD-44B4-468B-BFCA-45E723416EB6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -41,6 +45,14 @@ Global
 		{193E256B-7B43-49F6-A7FE-E67B57064DD2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{193E256B-7B43-49F6-A7FE-E67B57064DD2}.Release|Any CPU.Build.0 = Release|Any CPU
 		{193E256B-7B43-49F6-A7FE-E67B57064DD2}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{1AE7F997-2C31-476B-8071-12405583E327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1AE7F997-2C31-476B-8071-12405583E327}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1AE7F997-2C31-476B-8071-12405583E327}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1AE7F997-2C31-476B-8071-12405583E327}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BABF65BD-44B4-468B-BFCA-45E723416EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BABF65BD-44B4-468B-BFCA-45E723416EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BABF65BD-44B4-468B-BFCA-45E723416EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BABF65BD-44B4-468B-BFCA-45E723416EB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -66,6 +66,8 @@
 	<ItemGroup>
 	  <ProjectReference Include="..\ExCellCounter.Presentation.Core\ExCellCounter.Presentation.Core.csproj" />
 	  <ProjectReference Include="..\ExCellCounter.Presentation\ExCellCounter.Presentation.csproj" />
+	  <ProjectReference Include="..\ExCellCounter.Services.Core\ExCellCounter.Services.Core.csproj" />
+	  <ProjectReference Include="..\ExCellCounter.Services\ExCellCounter.Services.csproj" />
 	  <ProjectReference Include="..\ExCellCounter.Shared\ExCellCounter.Shared.csproj" />
 	</ItemGroup>
 

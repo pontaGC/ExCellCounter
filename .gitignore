@@ -12,3 +12,5 @@
 /ExCellCounter.Presentation.Core/obj
 /ExCellCounter.Shared/bin/Debug
 /ExCellCounter.Shared/obj
+/ExCellCounter.Services/obj
+/ExCellCounter.Services.Core/obj
