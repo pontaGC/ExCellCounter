@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ExCellCounter.Shared\ExCellCounter.Shared.csproj" />
+  </ItemGroup>
+
 </Project>
