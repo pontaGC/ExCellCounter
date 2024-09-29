@@ -40,7 +40,7 @@ public class ValidatableObserveProperty<T> : ObservableObject
     public T? Value
     {
         get => this.value;
-        set 
+        set
         {
             if (this.SetProperty(ref this.value, value))
             {
@@ -83,7 +83,6 @@ public class ValidatableObserveProperty<T> : ObservableObject
             ? this.validations.Apply(currentValue)
             : this.validations.Apply(ruleName, currentValue);
 
-        this.OnPropertyChanged(nameof(this.HasError));
         return errors;
     }
 
@@ -91,13 +90,19 @@ public class ValidatableObserveProperty<T> : ObservableObject
     /// Valdiates the current property value.
     /// </summary>
     /// <returns><c>true</c> If all validation rule checks pass, otherwise, <c>false</c>.</returns>
+    /// <remarks>The detected errors are stored in <see cref="Errors"/> property.</remarks>
     public bool ValidateAll()
     {
         var currentValue = this.Value;
-        this.errors.Clear();
 
+        this.OnPropertyChanging(nameof(this.Errors));
+        this.OnPropertyChanging(nameof(this.HasError));
+
+        this.errors.Clear();
         this.errors.AddRange(this.validations.Apply(currentValue));
+
         this.OnPropertyChanged(nameof(this.HasError));
+        this.OnPropertyChanged(nameof(this.Errors));
 
         return !this.errors.Any();
     }
