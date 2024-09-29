@@ -32,7 +32,7 @@ public class RuleList<TTarget, TError> : SynchronizedList<IRule<TTarget, TError>
     public IEnumerable<TError> Apply(TTarget? target)
     {
         var allRules = this.ToArray();
-        foreach (var rule in allRules)
+        foreach(var rule in allRules)
         {
             var applied = rule.Apply(target);
             if (applied.Passed == false)
