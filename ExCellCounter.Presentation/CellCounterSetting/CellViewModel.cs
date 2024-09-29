@@ -9,39 +9,29 @@ internal class CellViewModel : ViewModelBase
 {
     #region Fields
 
-    private string column = string.Empty;
-    private string? name = string.Empty;
-    private string row = string.Empty;
+    private string cellAddress = string.Empty;
+    private string name = string.Empty;
 
     #endregion
 
     #region Properties
 
     /// <summary>
-    /// Gets or sets a column value of the cell address.
+    /// Gets or sets a cell address (e.g. AZ10, D2).
     /// </summary>
-    public string Column
+    public string CellAddress
     {
-        get => this.column;
-        set => this.SetProperty(ref this.column, value);
+        get => this.cellAddress;
+        set => this.SetProperty(ref this.cellAddress, value ?? string.Empty);
     }
 
     /// <summary>
-    /// Gets or sets a row value of the cell address.
+    /// Gets or sets a name of the cell.
     /// </summary>
-    public string Row
-    {
-        get => this.row;
-        set => this.SetProperty(ref this.row, value);
-    }
-
-    /// <summary>
-    /// Gets or sets a name of the cell. Can be <c>null</c>.
-    /// </summary>
-    public string? Name
+    public string Name
     {
         get => this.name;
-        set => this.SetProperty(ref this.name, value);
+        set => this.SetProperty(ref this.name, value ?? string.Empty);
     }
 
     #endregion
