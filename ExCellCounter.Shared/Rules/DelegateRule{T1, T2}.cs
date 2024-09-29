@@ -36,14 +36,14 @@ public class DelegateRule<TTarget, TError> : IRule<TTarget, TError>
     public string Name { get; }
 
     /// <inheritdoc />
-    public (bool Passed, TError Error) Apply(TTarget? target)
+    public RuleResult<TError> Apply(TTarget? target)
     {
         var passed = this.applyRule(target);
         if (passed)
         {
-            return (true, default(TError));
+            return RuleResult<TError>.Passed(this.Name);
         }
 
-        return (false, this.getError(target));
+        return RuleResult<TError>.Failed(this.Name, this.getError(target));
     }
 }

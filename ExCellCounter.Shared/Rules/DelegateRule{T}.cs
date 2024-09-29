@@ -29,7 +29,7 @@ public class DelegateRule<T> : IRule<T>
     public string Name => this.rule.Name;
 
     /// <inheritdoc />
-    public (bool Passed, string Error) Apply(T? target)
+    public RuleResult<string> Apply(T? target)
     {
         return this.rule.Apply(target);
     }

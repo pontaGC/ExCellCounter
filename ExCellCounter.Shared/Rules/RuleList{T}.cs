@@ -4,6 +4,7 @@
 /// The list of <see cref="IRule{T}"/>.
 /// </summary>
 /// <typeparam name="T">The type of an object to check.</typeparam>
+/// <remarks>This is a thread-safe list.</remarks>
 public class RuleList<T> : SynchronizedList<IRule<T>>
 {
     /// <summary>
@@ -18,7 +19,7 @@ public class RuleList<T> : SynchronizedList<IRule<T>>
         foreach (var rule in rulesByName)
         {
             var applied = rule.Apply(target);
-            if (applied.Passed == false)
+            if (applied.IsPassed == false)
             {
                 yield return applied.Error;
             }
@@ -36,7 +37,7 @@ public class RuleList<T> : SynchronizedList<IRule<T>>
         foreach (var rule in allRules)
         {
             var applied = rule.Apply(target);
-            if (applied.Passed == false)
+            if (applied.IsPassed == false)
             {
                 yield return applied.Error;
             }

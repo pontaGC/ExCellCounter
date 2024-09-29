@@ -19,6 +19,6 @@ public interface IRule<in TTarget, TError>
     /// Checks whether the given object satisfies this rule.
     /// </summary>
     /// <param name="target">The target object to check.</param>
-    /// <returns>The checked result. <c>Error</c> is default value if the target passes the rule.</returns>
-    (bool Passed, TError Error) Apply(TTarget? target);
+    /// <returns>The checked result.</returns>
+    RuleResult<TError> Apply(TTarget? target);
 }
