@@ -19,12 +19,12 @@
         protected bool SetId(TId newId, IEqualityComparer<TId> idComparer = null)
         {
             var comparer = idComparer ?? EqualityComparer<TId>.Default;
-            if (comparer.Equals(Id, newId))
+            if (comparer.Equals(this.Id, newId))
             {
                 return false;
             }
 
-            Id = newId;
+            this.Id = newId;
             return true;
         }
     }
