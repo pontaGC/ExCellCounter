@@ -1,4 +1,4 @@
-﻿namespace ExCellCounter.Services.MsOffices
+﻿namespace ExCellCounter.Services.MsOffices.Excel
 {
     /// <summary>
     /// Constant parameter for ClosedXML.
