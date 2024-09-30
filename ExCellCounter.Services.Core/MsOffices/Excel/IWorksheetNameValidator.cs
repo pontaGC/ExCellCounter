@@ -5,13 +5,12 @@
 /// </summary>
 public interface IWorksheetNameValidator
 {
-    #region Sheet name validations
-
     /// <summary>
     /// Validates the given worksheet name.
     /// </summary>
     /// <param name="sheetName">The name of worksheet to check).</param>
     /// <returns><c>true</c> if <paramref name="sheetName"/> is not empty and valid, otherwise, <c>false</c>.</returns>
+    /// <remarks>This is verified by executing other verification methods in <see cref="IWorksheetNameValidator"/>.</remarks>
     bool Validate(string sheetName);
 
     /// <summary>
@@ -36,6 +35,4 @@ public interface IWorksheetNameValidator
     /// <param name="sheetName">The name of worksheet to check).</param>
     /// <returns><c>true</c> if the <paramref name="sheetName"/> does not start or end with apostrophe, otherwise, <c>false</c>.</returns>
     bool StartsAndEndsWithoutApostrophe(string sheetName);
-
-    #endregion
 }
