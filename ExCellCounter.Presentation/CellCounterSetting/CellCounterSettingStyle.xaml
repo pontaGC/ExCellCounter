@@ -10,4 +10,5 @@
             <Setter Property="FontSize" Value="Medium" />
         </Style.Setters>
     </Style>
+    
 </ResourceDictionary>

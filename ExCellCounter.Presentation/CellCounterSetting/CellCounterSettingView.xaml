@@ -4,6 +4,7 @@
              xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:mct="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:dg="clr-namespace:Maui.DataGrid;assembly=Maui.DataGrid"
              xmlns:local="clr-namespace:ExCellCounter.Presentation.CellCounterSetting"
              x:DataType="local:CellCounterSettingViewModel">
     <ContentView.Resources>
@@ -13,39 +14,69 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </ContentView.Resources>
-   
 
-    <Grid RowDefinitions="*">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <dg:DataGrid Grid.Row="0"
+                     ItemsSource="{Binding WorksheetCells, Mode=OneTime}"
+                     SelectedItem="{Binding SelectedCellItem}"
+                     SelectionMode="Single"
+                     SortingEnabled="True">
+            <dg:DataGrid.Columns>
+                <dg:DataGridColumn Title="Worksheet" x:DataType="local:WorksheetCellViewModel">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Entry Text="{Binding SheetName.Value, Mode=TwoWay}">
+                                <Entry.Triggers>
+                                    <DataTrigger 
+                                        TargetType="Entry"
+                                        Binding="{Binding SheetName.HasError}"
+                                        Value="True">
+                                        <Setter Property="BackgroundColor" Value="red" />
+                                    </DataTrigger>
+                                </Entry.Triggers>
+                            </Entry>
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <dg:DataGridColumn Title="Cell address" PropertyName="CellAddress" />
+                <dg:DataGridColumn Title="Cell label" PropertyName="CellLabel" />
+            </dg:DataGrid.Columns>
+        </dg:DataGrid>
 
-        <!--スタイル適用確認用のラベル-->
+        <!--スタイル適用確認用のラベル--><!--
         <Label Style="{StaticResource WorksheetHeaderLabelStyle}" Text="LabelStyle" />
+        <Entry Text="{Binding EntryTest.Value, Mode=TwoWay}">
+            <Entry.Triggers>
+                <DataTrigger 
+                    TargetType="Entry"
+                    Binding="{Binding EntryTest.HasError}"
+                    Value="True">
+                    <Setter Property="BackgroundColor" Value="red" />
+                </DataTrigger>
+            </Entry.Triggers>
+        </Entry>
 
         <CollectionView Grid.Row="0"
                         ItemsSource="{Binding Worksheets, Mode=OneTime}">
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="local:WorksheetViewModel">
-                    <Grid RowDefinitions="*">                        
-                        <CollectionView Grid.Row="0"
-                                        ItemsSource="{Binding Cells, Mode=OneTime}">
-                            <CollectionView.ItemTemplate>
-                                <DataTemplate x:DataType="local:CellViewModel">
-                                    <Grid>
-                                        <Grid.RowDefinitions>
-                                            <RowDefinition Height="Auto" />
-                                        </Grid.RowDefinitions>
-                                        <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="Auto" />
-                                            <ColumnDefinition Width="Auto" />
-                                        </Grid.ColumnDefinitions>
-                                        <Label Grid.Row="0" Grid.Column="0" Text="{Binding Row, Mode=OneWay}" />
-                                        <Label Grid.Row="0" Grid.Column="1" Text="{Binding Column, Mode=OneWay}" />
-                                    </Grid>
-                                </DataTemplate>
-                            </CollectionView.ItemTemplate>
-                        </CollectionView>
-                    </Grid>
+                    <CollectionView Grid.Row="0"
+                                    ItemsSource="{Binding Cells, Mode=OneTime}">
+                        <CollectionView.ItemTemplate>
+                            <DataTemplate>
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                    </Grid.RowDefinitions>
+                                </Grid>
+                            </DataTemplate>
+                        </CollectionView.ItemTemplate>
+                    </CollectionView>
                 </DataTemplate>                
             </CollectionView.ItemTemplate>
-        </CollectionView>
+        </CollectionView>-->
     </Grid>
 </ContentView>
