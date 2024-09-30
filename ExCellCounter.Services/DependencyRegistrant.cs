@@ -19,5 +19,6 @@ public sealed class DependencyRegistrant : IDependenyRegistrant
     private static void RegisterMsOffices(IServiceCollection container)
     {
         container.AddSingleton<ICellAddressValidator, CellAddressValidator>();
+        container.AddSingleton<IWorksheetNameValidator, WorksheetNameValidator>();
     }
 }
