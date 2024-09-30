@@ -1,10 +1,10 @@
 ﻿using ClosedXML.Excel;
-using ExCellCounter.Services.Core.MsOffices;
+using ExCellCounter.Services.Core.MsOffices.Excel;
 
-namespace ExCellCounter.Services.MsOffices;
+namespace ExCellCounter.Services.MsOffices.Excel;
 
 /// <summary>
-/// 
+/// Responsible for validating a cell address in EXCEL.
 /// </summary>
 internal sealed class CellAddressValidator : ICellAddressValidator
 {

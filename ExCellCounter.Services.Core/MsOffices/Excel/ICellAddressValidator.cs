@@ -1,4 +1,4 @@
-﻿namespace ExCellCounter.Services.Core.MsOffices;
+﻿namespace ExCellCounter.Services.Core.MsOffices.Excel;
 
 /// <summary>
 /// Responsible for validating a cell address in EXCEL.

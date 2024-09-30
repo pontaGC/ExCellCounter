@@ -1,6 +1,5 @@
-﻿using ExCellCounter.Services.Core.MsOffices;
-using ExCellCounter.Services.MsOffices;
-
+﻿using ExCellCounter.Services.Core.MsOffices.Excel;
+using ExCellCounter.Services.MsOffices.Excel;
 using ExCellCounter.Shared.DependencyInjection;
 using Microsoft.Extensions.DependencyInjection;
 
