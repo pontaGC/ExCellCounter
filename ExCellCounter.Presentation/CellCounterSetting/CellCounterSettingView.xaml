@@ -19,16 +19,29 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <dg:DataGrid Grid.Row="0"
+        <dg:DataGrid x:Name="CounterCellDataGrid"
+                     Grid.Row="0"
                      ItemsSource="{Binding WorksheetCells, Mode=OneTime}"
                      SelectedItem="{Binding SelectedCellItem}"
                      SelectionMode="Single"
                      SortingEnabled="True">
             <dg:DataGrid.Columns>
+                <!-- Button to focus selected row item -->
+                <dg:DataGridColumn Width="7">
+                    <dg:DataGridColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button x:Name="SelectRowButton" Style="{StaticResource SelectRowButtonStyle}"
+                                    Clicked="OnSelectRowButtonClicked" />
+                        </DataTemplate>
+                    </dg:DataGridColumn.CellTemplate>
+                </dg:DataGridColumn>
+                <!-- Worksheet -->
                 <dg:DataGridColumn Title="Worksheet" x:DataType="local:WorksheetCellViewModel">
                     <dg:DataGridColumn.CellTemplate>
                         <DataTemplate>
-                            <Entry Text="{Binding SheetName.Value, Mode=TwoWay}">
+                            <Entry Text="{Binding SheetName.Value, Mode=TwoWay}"
+                                   ClearButtonVisibility="WhileEditing"
+                                   ReturnType="Next">
                                 <Entry.Triggers>
                                     <DataTrigger 
                                         TargetType="Entry"
@@ -41,42 +54,11 @@
                         </DataTemplate>
                     </dg:DataGridColumn.CellTemplate>
                 </dg:DataGridColumn>
+                <!-- Cell address -->
                 <dg:DataGridColumn Title="Cell address" PropertyName="CellAddress" />
+                <!-- Cell label -->
                 <dg:DataGridColumn Title="Cell label" PropertyName="CellLabel" />
             </dg:DataGrid.Columns>
         </dg:DataGrid>
-
-        <!--スタイル適用確認用のラベル--><!--
-        <Label Style="{StaticResource WorksheetHeaderLabelStyle}" Text="LabelStyle" />
-        <Entry Text="{Binding EntryTest.Value, Mode=TwoWay}">
-            <Entry.Triggers>
-                <DataTrigger 
-                    TargetType="Entry"
-                    Binding="{Binding EntryTest.HasError}"
-                    Value="True">
-                    <Setter Property="BackgroundColor" Value="red" />
-                </DataTrigger>
-            </Entry.Triggers>
-        </Entry>
-
-        <CollectionView Grid.Row="0"
-                        ItemsSource="{Binding Worksheets, Mode=OneTime}">
-            <CollectionView.ItemTemplate>
-                <DataTemplate x:DataType="local:WorksheetViewModel">
-                    <CollectionView Grid.Row="0"
-                                    ItemsSource="{Binding Cells, Mode=OneTime}">
-                        <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto" />
-                                    </Grid.RowDefinitions>
-                                </Grid>
-                            </DataTemplate>
-                        </CollectionView.ItemTemplate>
-                    </CollectionView>
-                </DataTemplate>                
-            </CollectionView.ItemTemplate>
-        </CollectionView>-->
     </Grid>
 </ContentView>

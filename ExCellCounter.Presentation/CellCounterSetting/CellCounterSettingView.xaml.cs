@@ -1,3 +1,5 @@
+using Maui.DataGrid;
+
 namespace ExCellCounter.Presentation.CellCounterSetting;
 
 /// <summary>
@@ -9,4 +11,14 @@ internal partial class CellCounterSettingView
 	{
 		InitializeComponent();
 	}
+
+    private void OnSelectRowButtonClicked(object sender, EventArgs e)
+    {
+		if (sender is not Button selectRowButton)
+		{
+			return;
+		}
+
+        this.CounterCellDataGrid.SelectedItem = selectRowButton.BindingContext;
+    }
 }

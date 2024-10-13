@@ -10,5 +10,16 @@
             <Setter Property="FontSize" Value="Medium" />
         </Style.Setters>
     </Style>
+
+    <!--First column button style-->
+    <Style x:Key="SelectRowButtonStyle" TargetType="Button">
+        <Style.Setters>
+            <Setter Property="VerticalOptions" Value="Fill" />
+            <Setter Property="HorizontalOptions" Value="Fill" />
+            <Setter Property="CornerRadius" Value="0" />
+            <Setter Property="BackgroundColor" Value="Grey" />
+            <Setter Property="BorderColor" Value="Transparent" />
+        </Style.Setters>
+    </Style>
     
 </ResourceDictionary>
