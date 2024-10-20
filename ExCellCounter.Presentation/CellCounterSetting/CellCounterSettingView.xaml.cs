@@ -17,7 +17,7 @@ internal partial class CellCounterSettingView
 			return;
 		}
 
-        // Foci selected row
+        // Focuses selected row
         this.CounterCellDataGrid.SelectedItem = selectRowButton.BindingContext;
     }
 }
