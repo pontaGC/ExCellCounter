@@ -1,5 +1,3 @@
-using Maui.DataGrid;
-
 namespace ExCellCounter.Presentation.CellCounterSetting;
 
 /// <summary>
@@ -19,6 +17,7 @@ internal partial class CellCounterSettingView
 			return;
 		}
 
+        // Foci selected row
         this.CounterCellDataGrid.SelectedItem = selectRowButton.BindingContext;
     }
 }
