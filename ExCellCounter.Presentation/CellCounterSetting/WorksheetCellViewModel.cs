@@ -7,13 +7,6 @@ namespace ExCellCounter.Presentation.CellCounterSetting;
 /// </summary>
 internal class WorksheetCellViewModel : ViewModelBase
 {
-    #region Fields
-
-    private string cellAddress = string.Empty;
-    private string cellLabel = string.Empty;
-
-    #endregion
-
     #region Properties
 
     /// <summary>
@@ -24,20 +17,12 @@ internal class WorksheetCellViewModel : ViewModelBase
     /// <summary>
     /// Gets or sets a cell address (e.g. AZ10, D2).
     /// </summary>
-    public string CellAddress
-    {
-        get => this.cellAddress;
-        set => this.SetProperty(ref this.cellAddress, value ?? string.Empty);
-    }
+    public ValidatableObserveProperty<string> CellAddress { get; } = new ValidatableObserveProperty<string>();
 
     /// <summary>
     /// Gets or sets a label of the cell.
     /// </summary>
-    public string CellLabel
-    {
-        get => this.cellLabel;
-        set => this.SetProperty(ref this.cellLabel, value ?? string.Empty);
-    }
+    public ValidatableObserveProperty<string> CellLabel { get; } = new ValidatableObserveProperty<string>();
 
     #endregion
 }

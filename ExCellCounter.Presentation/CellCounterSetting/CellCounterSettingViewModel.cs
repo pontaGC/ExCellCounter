@@ -38,25 +38,23 @@ internal class CellCounterSettingViewModel : ViewModelBase
         dummySheet.Cells.Add(dummyCellAddress);
         this.Worksheets.Add(dummySheet);
 
-        var dummySheetCell1 = new WorksheetCellViewModel()
-        {
-            CellAddress = "A1",
-            CellLabel = "English",
-        };
+        var dummySheetCell1 = new WorksheetCellViewModel();
         dummySheetCell1.SheetName.Value = "Sheet1";
-        var dummySheetCell2 = new WorksheetCellViewModel()
-        {
-            CellAddress = "AZ100",
-            CellLabel = "Math",
-        };
+        dummySheetCell1.CellAddress.Value = "A1";
+        dummySheetCell1.CellLabel.Value = "English";
+
+        var dummySheetCell2 = new WorksheetCellViewModel();
         dummySheetCell2.SheetName.Value = "Sheet2";
+        dummySheetCell2.CellAddress.Value = "AZ100";
+        dummySheetCell2.CellAddress.Value = "Math";
+
         this.WorksheetCells.Add(dummySheetCell1);
         this.WorksheetCells.Add(dummySheetCell2);
 
         var requiredRule = new DelegateRule<string>(
             "RequiredSheetName",
             x => !string.IsNullOrWhiteSpace(x),
-            x => "string.IsNullOrWhiteSpace(x)");
+            x => "Field is requred");
         dummySheetCell1.SheetName.AddRule(requiredRule);
         dummySheetCell2.SheetName.AddRule(requiredRule);
     }

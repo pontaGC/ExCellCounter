@@ -8,6 +8,9 @@
     <MauiXaml Update="CellCounterSetting\CellCounterSettingView.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>
+    <MauiXaml Update="CellCounterSetting\CellCounterSettingTextField.xaml">
+      <SubType>Designer</SubType>
+    </MauiXaml>
     <MauiXaml Update="MainPageView\MainPage.xaml">
       <SubType>Designer</SubType>
     </MauiXaml>

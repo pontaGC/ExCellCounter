@@ -33,6 +33,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Update="CellCounterSetting\CellCounterSettingTextField.xaml.cs">
+	    <DependentUpon>CellCounterSettingTextField.xaml</DependentUpon>
+	  </Compile>
 	  <Compile Update="MainPageView\MainPage.xaml.cs">
 	    <DependentUpon>%(Filename)</DependentUpon>
 	  </Compile>
@@ -43,6 +46,9 @@
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="CellCounterSetting\CellCounterSettingView.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="CellCounterSetting\CellCounterSettingTextField.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="MainPageView\MainPage.xaml">

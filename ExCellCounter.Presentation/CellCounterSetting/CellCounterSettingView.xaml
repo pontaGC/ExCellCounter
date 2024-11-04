@@ -15,50 +15,32 @@
         </ResourceDictionary>
     </ContentView.Resources>
 
+    <!-- View content -->
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <dg:DataGrid x:Name="CounterCellDataGrid"
-                     Grid.Row="0"
-                     ItemsSource="{Binding WorksheetCells, Mode=OneTime}"
-                     SelectedItem="{Binding SelectedCellItem}"
-                     SelectionMode="Single"
-                     SortingEnabled="True">
-            <dg:DataGrid.Columns>
-                <!-- Button to focus selected row item -->
-                <dg:DataGridColumn Width="7">
-                    <dg:DataGridColumn.CellTemplate>
-                        <DataTemplate>
-                            <Button x:Name="SelectRowButton" Style="{StaticResource SelectRowButtonStyle}"
-                                    Clicked="OnSelectRowButtonClicked" />
-                        </DataTemplate>
-                    </dg:DataGridColumn.CellTemplate>
-                </dg:DataGridColumn>
-                <!-- Worksheet -->
-                <dg:DataGridColumn Title="Worksheet" x:DataType="local:WorksheetCellViewModel">
-                    <dg:DataGridColumn.CellTemplate>
-                        <DataTemplate>
-                            <Entry Text="{Binding SheetName.Value, Mode=TwoWay}"
-                                   ClearButtonVisibility="WhileEditing"
-                                   ReturnType="Next">
-                                <Entry.Triggers>
-                                    <DataTrigger 
-                                        TargetType="Entry"
-                                        Binding="{Binding SheetName.HasError}"
-                                        Value="True">
-                                        <Setter Property="BackgroundColor" Value="red" />
-                                    </DataTrigger>
-                                </Entry.Triggers>
-                            </Entry>
-                        </DataTemplate>
-                    </dg:DataGridColumn.CellTemplate>
-                </dg:DataGridColumn>
-                <!-- Cell address -->
-                <dg:DataGridColumn Title="Cell address" PropertyName="CellAddress" />
-                <!-- Cell label -->
-                <dg:DataGridColumn Title="Cell label" PropertyName="CellLabel" />
-            </dg:DataGrid.Columns>
-        </dg:DataGrid>
+        <CollectionView ItemsSource="{Binding WorksheetCells, Mode=OneTime}"
+                        SelectionMode="Single"
+                        Header="Worksheet | Cell Address | Cell Label">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="local:WorksheetCellViewModel">
+                    <Grid ColumnDefinitions="*,*,*">
+                        <local:CellCounterSettingTextField Grid.Column="0"
+                                                           Text="{Binding SheetName.Value}"
+                                                           HasError="{Binding SheetName.HasError}"
+                                                           Errors="{Binding SheetName.Errors}" />
+                        <local:CellCounterSettingTextField Grid.Column="1"
+                                                           Text="{Binding CellAddress.Value}"
+                                                           HasError="{Binding CellAddress.HasError}"
+                                                           Errors="{Binding CellAddress.Errors}" />
+                        <local:CellCounterSettingTextField Grid.Column="2"
+                                                           Text="{Binding CellLabel.Value}"
+                                                           HasError="{Binding CellLabel.HasError}"
+                                                           Errors="{Binding CellLabel.Errors}" />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>            
     </Grid>
 </ContentView>
